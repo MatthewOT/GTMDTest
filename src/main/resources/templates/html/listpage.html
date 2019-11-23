@@ -18,6 +18,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="/static/assets/libs/jquery/dist/jquery.min.js"></script>
     <![endif]-->
 </head>
 
@@ -147,20 +148,20 @@
                     <li class="sidebar-item">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">业务造数 </span></a>
                         <ul aria-expanded="false" class="collapse  first-level">
-                            <li class="sidebar-item"><a href="/listPage?eSaler" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 电销 </span></a></li>
-                            <li class="sidebar-item"><a href="/listPage?sunflower" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 直销 </span></a></li>
-                            <li class="sidebar-item"><a href="/listPage?agency" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 代理商 </span></a></li>
-                            <li class="sidebar-item"><a href="/listPage?publicService" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 公共服务 </span></a></li>
-                            <li class="sidebar-item"><a href="/listPage?finance" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 财务 </span></a></li>
-                            <li class="sidebar-item"><a href="/listPage?afterMarket" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 车主服务 </span></a></li>
+                            <li class="sidebar-item"><a href="/listPage?pageType=eSaler" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 电销 </span></a></li>
+                            <li class="sidebar-item"><a href="/listPage?pageType=sunflower" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 直销 </span></a></li>
+                            <li class="sidebar-item"><a href="/listPage?pageType=agency" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 代理商 </span></a></li>
+                            <li class="sidebar-item"><a href="/listPage?pageType=publicService" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 公共服务 </span></a></li>
+                            <li class="sidebar-item"><a href="/listPage?pageType=finance" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 财务 </span></a></li>
+                            <li class="sidebar-item"><a href="/listPage?pageType=afterMarket" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 车主服务 </span></a></li>
                         </ul>
                     </li>
                     <!--diff工具-->
                     <li class="sidebar-item">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">接口Diff </span></a>
                         <ul aria-expanded="false" class="collapse  first-level">
-                            <li class="sidebar-item"><a href="index2.html" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> 单接口 </span></a></li>
-                            <li class="sidebar-item"><a href="pages-gallery.html" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> 多接口 </span></a></li>
+                            <li class="sidebar-item"><a href="/singleDiff" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> 单次接口 </span></a></li>
+                            <li class="sidebar-item"><a href="/manyDiff" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> 多次接口 </span></a></li>
                         </ul>
                     </li>
                     <!--接口测试-->
@@ -205,7 +206,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-12 d-flex no-block align-items-center">
-                    <h4 class="page-title">造数</h4>
+                    <h4 class="page-title">业务造数</h4>
                     <div class="ml-auto text-right">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -230,8 +231,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-body printableArea">
-                        <h3> <span class="pull-right">直营</span></h3>
-                        <hr>
+                        <h3> <span class="pull-right">[[${systemName}]]</span></h3>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive m-t-40" style="clear: both;">
@@ -239,9 +239,9 @@
                                         <thead>
                                         <tr>
                                             <th class="text-center">#</th>
-                                            <th class="text-left    ">用例名</th>
+                                            <th class="text-left">用例名</th>
                                             <th>描述</th>
-                                            <th class="text-right">造数</th>
+                                            <th class="text-right">造数执行</th>
                                             <th class="text-right">收藏</th>
                                         </tr>
                                         </thead>
@@ -250,17 +250,40 @@
                                             <td class="text-center">1</td>
                                             <td class="text-left">创建普通工单 </td>
                                             <td>创建普通直营工单</td>
-                                            <td class="text-right"> --- </td>
-                                            <td class="text-right"> --- </td>
+                                            <td class="text-right">  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#Modal2">
+                                                Run
+                                            </button></td>
+                                            <td class="text-right"><button type="submit" class="btn btn-primary">Save</button></td>
                                         </tr>
                                         <tr>
                                             <td class="text-center">2</td>
                                             <td class="text-left"> 创建代理商工单 </td>
                                             <td>创建代理商工单</td>
-                                            <td class="text-right"> --- </td>
-                                            <td class="text-right"> --- </td>
+                                            <td class="text-right"><button type="submit" class="btn btn-success" data-toggle="modal" data-target="#Modal2">Run</button></td>
+                                            <td class="text-right"><button type="submit" class="btn btn-primary">Save</button></td>
                                         </tr>
                                         </tbody>
+                                        <!-- 弹窗Modal -->
+                                        <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">请稍等</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        用例执行中...
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                                        <button type="button" class="btn btn-primary">查看报告</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </table>
                                 </div>
                             </div>
@@ -314,6 +337,10 @@
 <script src="/static/dist/js/sidebarmenu.js"></script>
 <!--Custom JavaScript -->
 <script src="/static/dist/js/custom.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        console.log("调试")
+    });</script>
 </body>
 
 </html>

@@ -144,20 +144,20 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">业务造数 </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="/listPage?eSaler" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 电销 </span></a></li>
-                                <li class="sidebar-item"><a href="/listPage?sunflower" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 直销 </span></a></li>
-                                <li class="sidebar-item"><a href="/listPage?agency" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 代理商 </span></a></li>
-                                <li class="sidebar-item"><a href="/listPage?publicService" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 公共服务 </span></a></li>
-                                <li class="sidebar-item"><a href="/listPage?finance" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 财务 </span></a></li>
-                                <li class="sidebar-item"><a href="/listPage?afterMarket" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 车主服务 </span></a></li>
+                                <li class="sidebar-item"><a href="/listPage?pageType=eSaler" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 电销 </span></a></li>
+                                <li class="sidebar-item"><a href="/listPage?pageType=sunflower" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 直销 </span></a></li>
+                                <li class="sidebar-item"><a href="/listPage?pageType=agency" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 代理商 </span></a></li>
+                                <li class="sidebar-item"><a href="/listPage?pageType=publicService" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 公共服务 </span></a></li>
+                                <li class="sidebar-item"><a href="/listPage?pageType=finance" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 财务 </span></a></li>
+                                <li class="sidebar-item"><a href="/listPage?pageType=afterMarket" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 车主服务 </span></a></li>
                             </ul>
                         </li>
                         <!--diff工具-->
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">接口Diff </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="index2.html" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> 单接口 </span></a></li>
-                                <li class="sidebar-item"><a href="pages-gallery.html" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> 多接口 </span></a></li>
+                                <li class="sidebar-item"><a href="/singleDiff" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> 单接口 </span></a></li>
+                                <li class="sidebar-item"><a href="/manyDiff" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> 多接口 </span></a></li>
                             </ul>
                         </li>
                         <!--接口测试-->
@@ -225,7 +225,7 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3" onclick="window.open('/listPage?sunflower','_self')" >
+                    <div class="col-md-6 col-lg-2 col-xlg-3" onclick="window.open('/listPage?pageType=sunflower','_self')" >
                         <div class="card card-hover">
                             <div class="box bg-cyan text-center" >
                                 <h1 class="font-light text-white" ><i class="mdi mdi-view-dashboard"></i></h1>
@@ -234,7 +234,7 @@
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-4 col-xlg-3" onclick="window.open('/listPage?publicService','_self')">
+                    <div class="col-md-6 col-lg-4 col-xlg-3" onclick="window.open('/listPage?pageType=publicService','_self')">
                         <div class="card card-hover">
                             <div class="box bg-success text-center" href="/listPage?publicService">
                                 <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
@@ -243,7 +243,7 @@
                         </div>
                     </div>
                      <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3" onclick="window.open('/listPage?agency','_self')">
+                    <div class="col-md-6 col-lg-2 col-xlg-3" onclick="window.open('/listPage?pageType=agency','_self')">
                         <div class="card card-hover">
                             <div class="box bg-warning text-center" href="/listPage?agency">
                                 <h1 class="font-light text-white"><i class="mdi mdi-collage"></i></h1>
@@ -252,7 +252,7 @@
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3" onclick="window.open('/listPage?eSaler','_self')">
+                    <div class="col-md-6 col-lg-2 col-xlg-3" onclick="window.open('/listPage?pageType=eSaler','_self')">
                         <div class="card card-hover">
                             <div class="box bg-danger text-center" href="/listPage?eSaler">
                                 <h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>
@@ -261,7 +261,7 @@
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3" onclick="window.open('/listPage?finance','_self')">
+                    <div class="col-md-6 col-lg-2 col-xlg-3" onclick="window.open('/listPage?pageType=finance','_self')">
                         <div class="card card-hover">
                             <div class="box bg-info text-center" href="/listPage?finance">
                                 <h1 class="font-light text-white"><i class="mdi mdi-arrow-all"></i></h1>
@@ -271,7 +271,7 @@
                     </div>
                     <!-- Column -->
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-4 col-xlg-3" onclick="window.open('/listPage?afterMarket','_self')">
+                    <div class="col-md-6 col-lg-4 col-xlg-3" onclick="window.open('/listPage?pageType=afterMarket','_self')">
                         <div class="card card-hover">
                             <div class="box bg-danger text-center" href="/listPage?afterMarket">
                                 <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
@@ -280,20 +280,20 @@
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="col-md-6 col-lg-2 col-xlg-3" onclick="window.open('/singleDiff','_self')">
                         <div class="card card-hover">
                             <div class="box bg-info text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-relative-scale"></i></h1>
-                                <h6 class="text-white">单接口diff</h6>
+                                <h6 class="text-white">单次接口diff</h6>
                             </div>
                         </div>
                     </div>
                      <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="col-md-6 col-lg-2 col-xlg-3" onclick="window.open('/manyDiff','_self')">
                         <div class="card card-hover">
                             <div class="box bg-cyan text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-pencil"></i></h1>
-                                <h6 class="text-white">多接口diff</h6>
+                                <h6 class="text-white">多次接口diff</h6>
                             </div>
                         </div>
                     </div>
