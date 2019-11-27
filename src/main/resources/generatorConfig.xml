@@ -28,7 +28,7 @@
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
                         connectionURL="jdbc:mysql://localhost:3306/db_blog?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=UTC"
-                        userId="root" password="123456">
+                        userId="root" password="">
             <!--以下这两行property可以解决生成mapper时，Generator无法识别主键的问题-->
             <property name="useInformationSchema" value="true"/>
             <property name="remarks" value="true"/>
