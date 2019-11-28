@@ -1,6 +1,6 @@
 package com.gtmdtest.platform.model.entity;
 
-public class Case {
+public class TestCase {
     private Integer id;
 
     private String systemName;

@@ -5,9 +5,9 @@ spring:
     suffix: .html
     prefix: classpath:/templates/
   datasource:
-    url: jdbc:mysql://localhost:3306/db_blog?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/db_platform?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
-    password: 123456
+    password: 123
 
   mvc:
     view:

@@ -3,14 +3,14 @@ package com.gtmdtest.platform.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CaseExample {
+public class TestCaseExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public CaseExample() {
+    public TestCaseExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
