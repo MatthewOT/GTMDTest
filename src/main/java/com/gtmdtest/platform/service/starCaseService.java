@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface starCaseService {
 
-    void addStarCase();
-    void deleteStarCase();
-    void updateStarCase();
-    StarCase getStarCaseById();
+    void addStarCase(StarCase starCase);
+    void deleteStarCase(Integer id);
+    void updateStarCase(StarCase starCase);
+    StarCase getStarCaseById(Integer id);
     List<StarCase> getAllStarCase();
 }

@@ -1,9 +1,13 @@
 package com.gtmdtest.platform.service.impl;
 
 import com.gtmdtest.platform.model.entity.Users;
+import com.gtmdtest.platform.model.mapper.UsersMapper;
 import com.gtmdtest.platform.service.usersService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -14,23 +18,29 @@ import java.util.List;
  **/
 @Service
 public class usersServiceImpl implements usersService {
+
+    private static final Logger logger = LoggerFactory.getLogger(usersServiceImpl.class);
+
+    @Resource
+    private UsersMapper usersMapper;
+
     @Override
-    public void addUser() {
+    public void addUser(Users user) {
+        usersMapper.insert(user);
+    }
+
+    @Override
+    public void deleteUser(Integer id) {
 
     }
 
     @Override
-    public void deleteUser() {
+    public void updateUser(Users user) {
 
     }
 
     @Override
-    public void updateUser() {
-
-    }
-
-    @Override
-    public Users getUserById() {
+    public Users getUserById(Integer id) {
         return null;
     }
 

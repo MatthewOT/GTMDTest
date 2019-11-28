@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface caseService {
 
-    void addCase();
-    void deleteCase();
-    void updateCase();
-    Case getCaseById();
+    void addCase(Case newcase);
+    void deleteCase(Integer id);
+    void updateCase(Case newcase);
+    Case getCaseById(Integer id);
     List<Case> getAllCase();
 }
