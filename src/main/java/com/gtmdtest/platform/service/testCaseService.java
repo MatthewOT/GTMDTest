@@ -10,5 +10,6 @@ public interface testCaseService {
     void deleteTestCase(Integer id);
     void updateTestCase(TestCase newcase);
     TestCase getTestCaseById(Integer id);
+    List<TestCase> getTestCaseBySystemType(Integer systemType);
     List<TestCase> getAllTestCase();
 }

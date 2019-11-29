@@ -1,5 +1,6 @@
 package com.gtmdtest.platform.controller;
 
+import com.gtmdtest.platform.model.vo.BaseResponseVO;
 import com.gtmdtest.platform.service.usersService;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,4 +17,24 @@ public class usersController {
 
     @Resource
     usersService usersService;
+
+    public BaseResponseVO addUser(){
+        return null;
+    }
+
+    public BaseResponseVO deleteUser(){
+        return null;
+    }
+
+    public BaseResponseVO updateUser(){
+        return null;
+    }
+
+    public BaseResponseVO getUserById(){
+        return null;
+    }
+
+    public BaseResponseVO getAllUsers(){
+        return null;
+    }
 }

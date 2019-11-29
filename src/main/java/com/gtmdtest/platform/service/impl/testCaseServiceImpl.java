@@ -46,6 +46,13 @@ public class testCaseServiceImpl implements testCaseService {
     }
 
     @Override
+    public List<TestCase> getTestCaseBySystemType(Integer systemType) {
+        TestCaseExample example = new TestCaseExample();
+        example.createCriteria().andSystemTypeEqualTo(systemType);
+        return caseMapper.selectByExample(example);
+    }
+
+    @Override
     public List<TestCase> getAllTestCase() {
         TestCaseExample example = new TestCaseExample();
         example.createCriteria().andIdIsNotNull();
