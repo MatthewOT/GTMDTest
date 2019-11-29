@@ -1,6 +1,7 @@
 package com.gtmdtest.platform.service.impl;
 
 import com.gtmdtest.platform.model.entity.Users;
+import com.gtmdtest.platform.model.entity.UsersExample;
 import com.gtmdtest.platform.model.mapper.UsersMapper;
 import com.gtmdtest.platform.service.usersService;
 import org.slf4j.Logger;
@@ -31,21 +32,23 @@ public class usersServiceImpl implements usersService {
 
     @Override
     public void deleteUser(Integer id) {
-
+        usersMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public void updateUser(Users user) {
-
+        usersMapper.updateByPrimaryKey(user);
     }
 
     @Override
     public Users getUserById(Integer id) {
-        return null;
+        return usersMapper.selectByPrimaryKey(id);
     }
 
     @Override
     public List<Users> getAllUser() {
-        return null;
+        UsersExample example = new UsersExample();
+        example.createCriteria().andIdIsNotNull();
+        return usersMapper.selectByExample(example);
     }
 }

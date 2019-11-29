@@ -27,22 +27,22 @@ public class testCaseServiceImpl implements testCaseService {
 
     @Override
     public void addTestCase(TestCase newTestCase) {
-
+        caseMapper.insert(newTestCase);
     }
 
     @Override
     public void deleteTestCase(Integer id) {
-
+        caseMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public void updateTestCase(TestCase newTestCase) {
-
+        caseMapper.updateByPrimaryKey(newTestCase);
     }
 
     @Override
     public TestCase getTestCaseById(Integer id) {
-        return null;
+        return caseMapper.selectByPrimaryKey(id);
     }
 
     @Override

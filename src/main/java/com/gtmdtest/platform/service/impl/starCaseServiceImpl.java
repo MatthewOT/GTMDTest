@@ -1,6 +1,7 @@
 package com.gtmdtest.platform.service.impl;
 
 import com.gtmdtest.platform.model.entity.StarCase;
+import com.gtmdtest.platform.model.entity.StarCaseExample;
 import com.gtmdtest.platform.model.mapper.StarCaseMapper;
 import com.gtmdtest.platform.service.starCaseService;
 import org.slf4j.Logger;
@@ -31,12 +32,12 @@ public class starCaseServiceImpl implements starCaseService {
 
     @Override
     public void deleteStarCase(Integer id) {
-
+        starCaseMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public void updateStarCase(StarCase starCase) {
-
+        starCaseMapper.updateByPrimaryKey(starCase);
     }
 
     @Override
@@ -46,6 +47,8 @@ public class starCaseServiceImpl implements starCaseService {
 
     @Override
     public List<StarCase> getAllStarCase() {
-        return null;
+        StarCaseExample example = new StarCaseExample();
+        example.createCriteria().andIdIsNotNull();
+        return starCaseMapper.selectByExample(example);
     }
 }
