@@ -23,16 +23,16 @@ import java.util.Map;
 public class testCaseController {
 
     private static final Map<String,String> SYSTEM_NAME = new HashMap(){{
-        put("eSaler","电销");
-        put("sunflower","直销");
-        put("publicService","公共服务");
-        put("agency","代理商");
-        put("finance","财务");
-        put("afterMarket","车后服务");
+        put(1,"直销");
+        put(2,"公共服务");
+        put(3,"代理商");
+        put(4,"电销");
+        put(5,"财务");
+        put(6,"车后服务");
     }};
 
     @Resource
-    testCaseService testCaseService;
+    private testCaseService testCaseService;
 
     @PostMapping("/add")
     public BaseResponseVO addTestCase(@RequestParam(value = "systemType")Integer systemType,
