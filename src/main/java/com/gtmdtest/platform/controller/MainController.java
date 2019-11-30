@@ -22,12 +22,12 @@ public class MainController {
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
     private static final Map<String,String> SYSTEM_NAME = new HashMap(){{
-        put("eSaler","电销");
-        put("sunflower","直销");
-        put("publicService","公共服务");
-        put("agency","代理商");
-        put("finance","财务");
-        put("afterMarket","车后服务");
+        put(1,"直销");
+        put(2,"公共服务");
+        put(3,"代理商");
+        put(4,"电销");
+        put(5,"财务");
+        put(6,"车后服务");
     }};
 
 
@@ -37,7 +37,7 @@ public class MainController {
     }
 
     @GetMapping("listPage")
-    public String listPage(@RequestParam(value = "pageType",required = false) String pageType,
+    public String listPage(@RequestParam(value = "pageType",required = false) Integer pageType,
                            Model model){
         model.addAttribute("pageType",pageType);
         model.addAttribute("systemName",SYSTEM_NAME.get(pageType));
@@ -60,9 +60,23 @@ public class MainController {
         return "html/singlediff";
     }
 
-    @GetMapping("manyDiff")
+    @GetMapping("/manyDiff")
     public String manyDiff(){
         return "html/manydiff";
     }
 
+    @GetMapping("/httpMock")
+    public String httpMock(){
+        return "html/404";
+    }
+
+    @GetMapping("/dubboMock")
+    public String dubboMock(){
+        return "html/404";
+    }
+
+    @GetMapping("/kafkaMock")
+    public String kafkaMock(){
+        return "html/404";
+    }
 }
