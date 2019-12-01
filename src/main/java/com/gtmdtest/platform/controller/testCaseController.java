@@ -81,9 +81,9 @@ public class testCaseController {
     @GetMapping("/getAll")
     public BaseResponseVO getAllTestCase(@RequestParam(value = "pn",defaultValue = "1") Integer pageNumber){
         //分页
-        PageHelper.startPage(pageNumber,5);
+        PageHelper.startPage(pageNumber,8);
         List<TestCase> testCases = testCaseService.getAllTestCase();
-        PageInfo<TestCase> pageInfo = new PageInfo<>(testCases,5);
+        PageInfo<TestCase> pageInfo = new PageInfo<>(testCases,8);
         return BaseResponseVO.success(pageInfo);
     }
 
@@ -91,9 +91,14 @@ public class testCaseController {
     public BaseResponseVO getAllTestCaseBySystemType(@RequestParam(value = "pn",defaultValue = "1") Integer pageNumber,
                                                      @RequestParam(value = "systemType",defaultValue = "1")Integer systemType){
 
-        PageHelper.startPage(pageNumber,5);
+        PageHelper.startPage(pageNumber,8);
         List<TestCase> testCases = testCaseService.getTestCaseBySystemType(systemType);
-        PageInfo<TestCase> pageInfo = new PageInfo<>(testCases,5);
+        PageInfo<TestCase> pageInfo = new PageInfo<>(testCases,8);
         return BaseResponseVO.success(pageInfo);
+    }
+
+    @GetMapping("/test")
+    public BaseResponseVO testPage(){
+        return BaseResponseVO.success("http://localhost:8080/listPage?pageType=2");
     }
 }

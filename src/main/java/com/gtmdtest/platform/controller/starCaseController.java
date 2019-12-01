@@ -45,9 +45,9 @@ public class starCaseController {
 
     public BaseResponseVO getAllStarCase(@RequestParam(value = "pn",defaultValue = "1") Integer pageNumber){
         //分页
-        PageHelper.startPage(pageNumber,5);
+        PageHelper.startPage(pageNumber,8);
         List<StarCase> starCases = starCaseService.getAllStarCase();
-        PageInfo<StarCase> pageInfo = new PageInfo<>(starCases,5);
+        PageInfo<StarCase> pageInfo = new PageInfo<>(starCases,8);
         return BaseResponseVO.success(pageInfo);
     }
 

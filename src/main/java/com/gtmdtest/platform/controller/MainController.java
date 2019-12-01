@@ -79,4 +79,5 @@ public class MainController {
     public String kafkaMock(){
         return "html/404";
     }
+
 }

@@ -149,8 +149,8 @@
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">业务造数 </span></a>
                         <ul aria-expanded="false" class="collapse  first-level">
                             <li class="sidebar-item"><a href="/listPage?pageType=1" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 直销 </span></a></li>
-                            <li class="sidebar-item"><a href="/listPage?pageType=2" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 代理商 </span></a></li>
-                            <li class="sidebar-item"><a href="/listPage?pageType=3" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 公共服务 </span></a></li>
+                            <li class="sidebar-item"><a href="/listPage?pageType=2" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 公共服务 </span></a></li>
+                            <li class="sidebar-item"><a href="/listPage?pageType=3" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 代理商 </span></a></li>
                             <li class="sidebar-item"><a href="/listPage?pageType=4" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 电销 </span></a></li>
                             <li class="sidebar-item"><a href="/listPage?pageType=5" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 财务 </span></a></li>
                             <li class="sidebar-item"><a href="/listPage?pageType=6" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> 车主服务 </span></a></li>
@@ -231,6 +231,7 @@
                 <div class="col-md-12">
                     <div class="card card-body printableArea">
                         <h3> <span class="pull-right">[[${systemName}]]</span></h3>
+                        <!--caseTable-->
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive m-t-40" style="clear: both;">
@@ -244,49 +245,51 @@
                                             <th class="text-right">收藏</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td class="text-center">1</td>
-                                            <td class="text-left">创建普通工单 </td>
-                                            <td>创建普通直营工单</td>
-                                            <td class="text-right">  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#Modal2">
-                                                Run
-                                            </button></td>
-                                            <td class="text-right"><button type="submit" class="btn btn-primary">Save</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">2</td>
-                                            <td class="text-left"> 创建代理商工单 </td>
-                                            <td>创建代理商工单</td>
-                                            <td class="text-right"><button type="submit" class="btn btn-success" data-toggle="modal" data-target="#Modal2">Run</button></td>
-                                            <td class="text-right"><button type="submit" class="btn btn-primary">Save</button></td>
-                                        </tr>
+                                        <tbody id="caseTableBody">
                                         </tbody>
-                                        <!-- 弹窗Modal -->
-                                        <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">请稍等</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body" id="modalText">
-                                                        用例执行中...
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                                                        <button type="button" class="btn btn-primary" id="modalButton" disabled>查看报告</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
 
                                     </table>
                                 </div>
                             </div>
                         </div>
+
+
+                        <!--prenext按钮-->
+                        <!--<div class="col-md-4">-->
+                            <!--<nav aria-label="Page navigation example">-->
+                                <!--<ul class="pagination">-->
+                                    <!--<li class="page-item"><a class="page-link" href="#">Previous</a></li>-->
+                                    <!--<li class="page-item"><a class="page-link" href="#">1</a></li>-->
+                                    <!--<li class="page-item"><a class="page-link" href="#">2</a></li>-->
+                                    <!--<li class="page-item"><a class="page-link" href="#">3</a></li>-->
+                                    <!--<li class="page-item"><a class="page-link" href="#">Next</a></li>-->
+                                <!--</ul>-->
+                            <!--</nav>-->
+                        <!--</div>-->
+
+
+
+                        <!-- 弹窗Modal -->
+                        <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">请稍等</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" id="modalText">
+                                        用例执行中...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn btn-primary" id="modalButton">查看报告</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -338,8 +341,111 @@
 <script src="/static/dist/js/custom.min.js"></script>
 <script type="text/javascript">
     $(function() {
-        console.log("调试")
-    });</script>
+        caseTable(1);
+    });
+
+    function caseTable(id) {
+        $.ajax({
+            type: "GET",
+            url: "/testcase/getBySystemType",
+            data: "pn="+id+"&systemType="+[[${pageType}]],
+            dataType: "json",
+            success: function(result) {
+                buildTable(result);
+                // 分页按钮和信息
+                prenext(result.content);
+
+            }
+        });
+    }
+    // 接口列表函数
+    function buildTable(result) {
+        // 清空分页
+        $("#caseTableBody").empty();
+        var cases = result.content.list;
+        $.each(cases, function(index, item) {
+            var tr1 = $("<tr></tr>")
+
+            // 组装表格
+            var td11 = $("<td></td>").addClass("text-center").append(item.id);
+            var td12 = $("<td></td>").addClass("text-left").append(item.caseName);
+            var td13 = $("<td></td>").append(item.description);
+            var td14 = $("<td></td>").addClass("text-right");
+            var runButton = $("<button  class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#Modal2\" >Run</button>");
+            runButton.attr("onclick","runCase(\'"+item.runUrl+"\')");
+            var td15 = $("<td></td>").addClass("text-right");
+            var saveButton = $("<button type=\"submit\" class=\"btn btn-primary\">Save</button>");
+            td14.append(runButton);
+            td15.append(saveButton);
+            tr1.append(td11);
+            tr1.append(td12);
+            tr1.append(td13);
+            tr1.append(td14);
+            tr1.append(td15);
+
+            //插入表格
+            $("#caseTableBody").append(tr1);
+        });
+    }
+
+    // 分页按钮和信息
+    function prenext(pageinfo) {
+
+        $("#foot").empty();
+        var previous = $("<button></button>")
+            .addClass("w3-button w3-black w3-padding-large w3-margin-bottom").append("Previous");
+        var next = $("<button></button>")
+            .addClass("w3-button w3-black w3-padding-large w3-margin-bottom").append("Next »");
+        // 是否为第一页
+        if(pageinfo.isFirstPage) {
+            previous.addClass("w3-disabled");
+        }
+        // 是否为最后一页
+        if(pageinfo.isLastPage) {
+            next.addClass("w3-disabled");
+        }
+
+        if(pageinfo.hasPreviousPage == true) {
+            previous.click(function() {
+                caseTable(pageinfo.pageNum - 1);
+            });
+        }
+        if(pageinfo.hasNextPage == true) {
+            next.click(function() {
+                caseTable(pageinfo.pageNum + 1);
+            });
+        }
+        previous.appendTo("#foot");
+        next.appendTo("#foot");
+
+        var label = $("<p></p>").append("&nbsp;&nbsp;当前第&nbsp;" + pageinfo.pageNum
+            + "&nbsp;页，" + "共 &nbsp;" + pageinfo.total + "&nbsp;条记录");
+        label.appendTo("#foot");
+
+    }
+
+    //执行用例
+    function runCase(runUrl) {
+        console.log("执行用例"+runUrl+"此处待完成")
+        $.ajax({
+            type: "GET",
+            url: runUrl,
+            data: "",
+            dataType: "json",
+            success: function(result) {
+                $("#modalText").empty().append("用例执行完成");
+                console.log(result.content);
+                $("#modalButton").attr("onclick",jumpReport());
+                function jumpReport() {
+                    window.location.href=result.content;
+                }
+            }
+        });
+
+    }
+
+
+</script>
 </body>
 
 </html>
