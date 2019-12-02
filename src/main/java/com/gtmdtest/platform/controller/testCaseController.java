@@ -99,6 +99,6 @@ public class testCaseController {
 
     @GetMapping("/test")
     public BaseResponseVO testPage(){
-        return BaseResponseVO.success("http://localhost:8080/listPage?pageType=2");
+        return BaseResponseVO.success("http://localhost:8080/errorPage");
     }
 }

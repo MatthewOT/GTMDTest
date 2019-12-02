@@ -52,7 +52,7 @@ public class MainController {
 
     @GetMapping("/errorPage")
     public String errorPage(){
-        return "html/500";
+        return "html/404";
     }
 
     @GetMapping("/singleDiff")
