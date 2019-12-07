@@ -81,7 +81,7 @@
                             <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">新增造数case</a>
+                            <a class="dropdown-item" href="/caseAdmin">新增造数case</a>
                             <a class="dropdown-item" href="#">新增接口</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
@@ -237,12 +237,13 @@
                                 <div class="table-responsive m-t-40" style="clear: both;">
                                     <table class="table table-hover">
                                         <thead>
+                                        <button  class="btn btn-success" data-toggle="modal" data-target="#Modal2" >Add</button>
                                         <tr>
                                             <th class="text-center">用例Id</th>
                                             <th class="text-left">用例名</th>
                                             <th>描述</th>
-                                            <th class="text-right">造数执行</th>
-                                            <th class="text-right">收藏</th>
+                                            <th class="text-right">编辑</th>
+                                            <th class="text-right">删除</th>
                                         </tr>
                                         </thead>
                                         <tbody id="caseTableBody">
@@ -269,22 +270,64 @@
 
 
 
-                        <!-- 弹窗Modal -->
+                        <!-- 新增case弹窗Modal2-->
                         <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">请稍等</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">请确认！</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body" id="modalText">
-                                        用例执行中...
+                                        是否删除该用例
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                                        <a class="btn btn-primary" id="modalButton">查看报告</a>
+                                        <a class="btn btn-primary" id="modalButton">删除</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 更新case弹窗Modal3 -->
+                        <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel3">请确认！</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" id="modalText3">
+                                        是否删除该用例
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                        <button class="btn btn-primary" id="modalButton3">删除</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 删除case弹窗Modal4 -->
+                        <div class="modal fade" id="Modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel4">请确认！</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" id="modalText4">
+                                        是否删除该用例
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                        <button class="btn btn-primary" id="modalButton4"  onclick="deleteCase()">删除</button>
                                     </div>
                                 </div>
                             </div>
@@ -344,11 +387,12 @@
         caseTable(1);
     });
 
+    //组装case列表
     function caseTable(id) {
         $.ajax({
             type: "GET",
-            url: "/testcase/getBySystemType",
-            data: "pn="+id+"&systemType="+[[${pageType}]],
+            url: "/testcase/getAll",
+            data: "pn="+id,
             dataType: "json",
             success: function(result) {
                 buildTable(result);
@@ -358,6 +402,7 @@
             }
         });
     }
+    
     // 接口列表函数
     function buildTable(result) {
         // 清空分页
@@ -371,12 +416,13 @@
             var td12 = $("<td></td>").addClass("text-left").append(item.caseName);
             var td13 = $("<td></td>").append(item.description);
             var td14 = $("<td></td>").addClass("text-right");
-            var runButton = $("<button  class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#Modal2\" >Run</button>");
-            runButton.attr("onclick","runCase(\'"+item.runUrl+"\')");
+            var updateButton = $("<button  class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#Modal3\" >Update</button>");
+            updateButton.attr("onclick",updateId(item.id));
             var td15 = $("<td></td>").addClass("text-right");
-            var saveButton = $("<button type=\"button\" class=\"btn btn-primary\">Save</button>");
-            td14.append(runButton);
-            td15.append(saveButton);
+            var deleteButton = $("<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#Modal4\" >Delete</button>");
+            deleteButton.attr("onclick",deleteId(item.id));
+            td14.append(updateButton);
+            td15.append(deleteButton);
             tr1.append(td11);
             tr1.append(td12);
             tr1.append(td13);
@@ -424,25 +470,31 @@
 
     }
 
-    //执行用例
-    function runCase(runUrl) {
-        console.log("执行用例"+runUrl+"此处待完成")
+    //删除case
+    function deleteCase() {
+
+        var caseId =  $("#modalButton4").attr("data-caseId")
+
         $.ajax({
             type: "GET",
-            url: runUrl,
-            data: "",
+            url: "/testcase/deleteById",
+            data: "pn="+caseId,
             dataType: "json",
             success: function(result) {
-                $("#modalText").empty().append("用例执行完成");
-                console.log(result.content);
-                $("#modalButton").attr("href",result.content);
 
             }
         });
-
     }
 
+    //给删除modal传id
+    function deleteId(caseId) {
+        $("#modalButton4").attr("data-caseId",caseId)
+    }
 
+    //给更新modal传id
+    function updateId(caseId) {
+        $("#modalButton3").attr("data-caseId",caseId)
+    }
 </script>
 </body>
 

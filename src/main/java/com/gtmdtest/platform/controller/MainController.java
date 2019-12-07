@@ -49,6 +49,10 @@ public class MainController {
         return "html/apipage";
     }
 
+    @GetMapping("/caseAdmin")
+    public String caseAdminPage(){
+        return "html/caseAdmin";
+    }
 
     @GetMapping("/errorPage")
     public String errorPage(){

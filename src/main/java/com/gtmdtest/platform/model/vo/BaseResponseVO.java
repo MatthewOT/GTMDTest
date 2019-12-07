@@ -28,6 +28,10 @@ import static com.gtmdtest.platform.model.enums.BaseResponseEnums.*;
             return new BaseResponseVO(ERROR.getCode(),ERROR.getMessage(),content);
         }
 
+        public static BaseResponseVO warn(Class<?> aClass, String eMessage, String message, String s){
+        return new BaseResponseVO(ERROR.getCode(),ERROR.getMessage(),aClass);
+        }
+
         BaseResponseVO(int code, String message, Object content) {
 
             this.code = code;
