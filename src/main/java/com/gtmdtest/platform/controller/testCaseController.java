@@ -35,7 +35,7 @@ public class testCaseController {
     private testCaseService testCaseService;
 
     @PostMapping("/add")
-    public BaseResponseVO addTestCase(@RequestParam(value = "systemType")Integer systemType,
+    public BaseResponseVO addTestCase(@RequestParam(value = "systemType",required = true)Integer systemType,
                                       @RequestParam(value = "caseName")String caseName,
                                       @RequestParam(value = "descption")String descption,
                                       @RequestParam(value = "runUrl")String runUrl){
@@ -81,9 +81,9 @@ public class testCaseController {
     @GetMapping("/getAll")
     public BaseResponseVO getAllTestCase(@RequestParam(value = "pn",defaultValue = "1") Integer pageNumber){
         //分页
-        PageHelper.startPage(pageNumber,8);
+        PageHelper.startPage(pageNumber,100);
         List<TestCase> testCases = testCaseService.getAllTestCase();
-        PageInfo<TestCase> pageInfo = new PageInfo<>(testCases,8);
+        PageInfo<TestCase> pageInfo = new PageInfo<>(testCases,100);
         return BaseResponseVO.success(pageInfo);
     }
 
@@ -91,9 +91,9 @@ public class testCaseController {
     public BaseResponseVO getAllTestCaseBySystemType(@RequestParam(value = "pn",defaultValue = "1") Integer pageNumber,
                                                      @RequestParam(value = "systemType",defaultValue = "1")Integer systemType){
 
-        PageHelper.startPage(pageNumber,8);
+        PageHelper.startPage(pageNumber,100);
         List<TestCase> testCases = testCaseService.getTestCaseBySystemType(systemType);
-        PageInfo<TestCase> pageInfo = new PageInfo<>(testCases,8);
+        PageInfo<TestCase> pageInfo = new PageInfo<>(testCases,100);
         return BaseResponseVO.success(pageInfo);
     }
 

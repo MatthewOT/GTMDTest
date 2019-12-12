@@ -104,10 +104,10 @@
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into test_case (id, system_name, system_type,
+    insert into test_case (system_name, system_type,
       case_name, description, run_url
       )
-    values (#{id,jdbcType=INTEGER}, #{systemName,jdbcType=VARCHAR}, #{systemType,jdbcType=INTEGER}, 
+    values (#{systemName,jdbcType=VARCHAR}, #{systemType,jdbcType=INTEGER},
       #{caseName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{runUrl,jdbcType=VARCHAR}
       )
   </insert>
