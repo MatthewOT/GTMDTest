@@ -363,7 +363,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                                        <button class="btn btn-primary" id="modalButton4"  onclick="deleteCase()">删除</button>
+                                        <button class="btn btn-primary" id="modalButton4" data-dismiss="modal" onclick="deleteCase()">删除</button>
                                     </div>
                                 </div>
                             </div>
@@ -456,7 +456,8 @@
             updateButton.attr("onclick",updateId(item.id));
             var td15 = $("<td></td>").addClass("text-right");
             var deleteButton = $("<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#Modal4\" >Delete</button>");
-            deleteButton.attr("onclick",deleteId(item.id));
+            deleteButton.attr("data-caseId",item.id);
+            deleteButton.attr("onclick",deleteId(deleteButton.attr("id")));
             td14.append(updateButton);
             td15.append(deleteButton);
             tr1.append(td11);
@@ -524,10 +525,17 @@
 
     }
     //删除case
+    $("#Modal4").on("show.bs.modal",function (e) {
+        var caseId = $(e.relatedTarget).data("caseId");
+        console.log("caseId1="+caseId);
+        $("#modalButton4").attr("data-caseId",caseId);
+    });
+
     function deleteCase() {
 
-        var caseId = $("#modalButton4").attr("data-caseId")
-
+        var caseId = $("#modalButton4").attr("data-caseId");
+        // var caseId = $(e.relatedTarget).data("caseId");
+        console.log(caseId)
         $.ajax({
             type: "GET",
             url: "/testcase/deleteById",
@@ -539,10 +547,10 @@
         });
     }
 
-    //给删除modal传id
-    function deleteId(caseId) {
-        $("#modalButton4").attr("data-caseId",caseId)
-    }
+    // //给删除modal传id
+    // function deleteId(caseId) {
+    //     $("#modalButton4").attr("data-caseId",caseId)
+    // }
 
     //给更新modal传id
     function updateId(caseId) {
