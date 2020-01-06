@@ -43,6 +43,21 @@ public class OkHttpUtil{
     }
 
     /**
+     * 解析headers对象
+     * @param headers 存储headers的键值对
+     * @return okhttp中的headers对象
+     */
+    private Headers resolveHeaders(Map<String,String> headers){
+
+        Headers.Builder builder = new Headers.Builder();
+
+        for (Map.Entry<String,String> entry : headers.entrySet()){
+            builder.add(entry.getKey(),entry.getValue());
+        }
+        return builder.build();
+    }
+
+    /**
      * okhttp的request执行器
      * @param request 请求实体
      * @return 响应
@@ -71,11 +86,19 @@ public class OkHttpUtil{
      * @param queries 请求的参数，在浏览器？后面的数据，没有可以传null
      * @return 响应
      */
-    public String get(String url, Map<String, String> queries) {
+    public String get(String url, Map<String, String> queries, Map<String,String> headers) {
         String requestUrl =  splitUrl(url,queries);
+        Headers header;
+
+        if (headers!=null){
+            header = resolveHeaders(headers);
+        }else {
+            header = new Headers.Builder().add("request-remark","no-header").build();
+        }
 
         Request request = new Request.Builder()
                 .url(requestUrl)
+                .headers(header)
                 .build();
 
         return requestExecutor(request);
@@ -88,7 +111,7 @@ public class OkHttpUtil{
      * @param params post form 提交的参数
      * @return 响应
      */
-    public  String post(String url, Map<String, String> params) {
+    public  String post(String url, Map<String, String> params, Map<String,String> headers) {
 
         FormBody.Builder builder = new FormBody.Builder();
 

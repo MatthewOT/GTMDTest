@@ -1,13 +1,15 @@
-//package com.gtmdtest.platform.common;
-//
-///**
-// * @program: platform
-// * @description:
-// * @author:
-// * @create: 2019-11-25 14:08
-// **/
-//public class diffTools {
-//
+package com.gtmdtest.platform.common;
+
+import java.util.Properties;
+
+/**
+ * @program: platform
+ * @description:
+ * @author:
+ * @create: 2019-11-25 14:08
+ **/
+public class diffTools {
+
 //    public static int verificationBykey(Object value){
 //        //获取第一个字符
 //        if(value==null){
@@ -30,4 +32,14 @@
 //
 //        }
 //    }
-//}
+
+//    public static void main(String[] args) {
+//        Properties p = System.getProperties();
+//        p.list(System.out);
+//        System.out.println("-------Memory Usage----------");
+//        Runtime rt = Runtime.getRuntime();
+//        System.out.println("Total Memory = "+ rt.totalMemory() +
+//                "\nFree Memory = " + rt.freeMemory()+
+//                "\nMax Memory = " + rt.maxMemory());
+//    }
+}
