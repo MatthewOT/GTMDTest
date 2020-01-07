@@ -115,6 +115,13 @@ public class OkHttpUtil{
 
         FormBody.Builder builder = new FormBody.Builder();
 
+        Headers header;
+
+        if (headers!=null){
+            header = resolveHeaders(headers);
+        }else {
+            header = new Headers.Builder().add("request-remark","no-header").build();
+        }
         //添加参数
         if (params != null && params.keySet().size() > 0) {
             for (String key : params.keySet()) {
@@ -125,6 +132,7 @@ public class OkHttpUtil{
         Request request = new Request.Builder()
                 .url(url)
                 .post(builder.build())
+                .headers(header)
                 .build();
 
         return requestExecutor(request);
@@ -136,11 +144,19 @@ public class OkHttpUtil{
      * @param queries 请求的参数，在浏览器？后面的数据，没有可以传null
      * @return 响应
      */
-    public  String getForHeader(String url, Map<String, String> queries) {
+    public  String getForHeader(String url, Map<String, String> queries, Map<String,String> headers) {
         String requestUrl = splitUrl(url,queries);
 
+        Headers header;
+
+        if (headers!=null){
+            header = resolveHeaders(headers);
+        }else {
+            header = new Headers.Builder().add("request-remark","no-header").build();
+        }
+
         Request request = new Request.Builder()
-                .addHeader("key", "value")
+                .headers(header)
                 .url(requestUrl)
                 .build();
 
@@ -153,13 +169,22 @@ public class OkHttpUtil{
      * 参数二：请求的JSON
      * 参数三：请求回调
      */
-    public  String postJsonParams(String url, String jsonParams) {
+    public  String postJsonParams(String url, String jsonParams, Map<String,String> headers) {
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonParams);
+
+        Headers header;
+
+        if (headers!=null){
+            header = resolveHeaders(headers);
+        }else {
+            header = new Headers.Builder().add("request-remark","no-header").build();
+        }
 
         Request request = new Request.Builder()
                 .url(url)
                 .post(requestBody)
+                .headers(header)
                 .build();
 
         return requestExecutor(request);
@@ -171,12 +196,21 @@ public class OkHttpUtil{
      * 参数二：请求的xmlString
      * 参数三：请求回调
      */
-    public  String postXmlParams(String url, String xml) {
+    public  String postXmlParams(String url, String xml, Map<String,String> headers) {
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/xml; charset=utf-8"), xml);
+
+        Headers header;
+
+        if (headers!=null){
+            header = resolveHeaders(headers);
+        }else {
+            header = new Headers.Builder().add("request-remark","non-header").build();
+        }
 
         Request request = new Request.Builder()
                 .url(url)
                 .post(requestBody)
+                .headers(header)
                 .build();
 
         return requestExecutor(request);
