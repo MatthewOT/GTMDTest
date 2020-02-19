@@ -1,6 +1,7 @@
 package com.gtmdtest.platform;
 
 //import com.gtmdtest.platform.common.OkHttpUtil;
+import com.gtmdtest.platform.common.OkHttpUtil;
 import com.gtmdtest.platform.model.entity.TestCase;
 import com.gtmdtest.platform.model.mapper.TestCaseMapper;
 import com.gtmdtest.platform.service.testCaseService;
@@ -19,8 +20,8 @@ class PlatformApplicationTests {
     @Resource
     private TestCaseMapper caseMapper;
 
-//    @Resource
-//    private OkHttpUtil okHttpUtil;
+    @Resource
+    private OkHttpUtil okHttpUtil;
 
     @Test
     void contextLoads() {
@@ -41,7 +42,8 @@ class PlatformApplicationTests {
 
     @Test
     void getTest(){
-//        System.out.println(okHttpUtil.get("http://www.baidu.com",null,null));
+        System.out.println(okHttpUtil.get("http://www.kuaidi100.com/query?type=shunfeng&postid=123454545451"));
+//        System.out.println(okHttpUtil.post("http://www.baidu.com",null,null));
     }
 
 }

@@ -4,9 +4,9 @@ import okhttp3.*;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -14,7 +14,7 @@ import java.util.Map;
 public class OkHttpUtil{
     private  final Logger logger = LoggerFactory.getLogger(OkHttpUtil.class);
 
-    @Autowired
+    @Resource
     private OkHttpClient  okHttpClient;
 
     /**
@@ -62,19 +62,24 @@ public class OkHttpUtil{
      * @return 响应
      */
     private String requestExecutor(Request request){
-        Response response = null;
-        try {
-            response = okHttpClient.newCall(request).execute();
-            int status = response.code();
+
+        String responseBody = null;
+        try (Response response = okHttpClient.newCall(request).execute()) {
+
+            if (response.body() != null) {
+                responseBody = response.body().string();
+            }
+
+            logger.info("\nresponse:[\n  <code:{}>,\n  <message:{}>,\n  <body:{}>]",
+                    response.code(),
+                    response.message(),
+                    responseBody);
+
             if (response.isSuccessful()) {
-                return response.body().string();
+                return responseBody;
             }
         } catch (Exception e) {
             logger.error("okhttp3 error >> ex = {}", ExceptionUtils.getStackTrace(e));
-        } finally {
-            if (response != null) {
-                response.close();
-            }
         }
         return "";
     }
@@ -214,4 +219,16 @@ public class OkHttpUtil{
 
         return requestExecutor(request);
     }
+
+    public String get(String url, Map<String, String> headers){
+        if (headers.isEmpty()){
+            return get(url,null,null);
+        }
+        return get(url,null,headers);
+    }
+
+    public String get(String url){
+        return get(url,null,null);
+    }
+
 }
