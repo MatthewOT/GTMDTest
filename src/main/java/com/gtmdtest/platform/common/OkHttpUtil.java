@@ -69,11 +69,11 @@ public class OkHttpUtil{
             if (response.body() != null) {
                 responseBody = response.body().string();
             }
-
-            logger.info("\nresponse:[\n  <code:{}>,\n  <message:{}>,\n  <body:{}>]",
-                    response.code(),
-                    response.message(),
-                    responseBody);
+//次日志用于打印响应,可用于排查问题
+//            logger.info("\nresponse:[\n  <code:{}>,\n  <message:{}>,\n  <body:{}>]",
+//                    response.code(),
+//                    response.message(),
+//                    responseBody);
 
             if (response.isSuccessful()) {
                 return responseBody;

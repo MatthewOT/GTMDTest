@@ -1,4 +1,4 @@
-package com.gtmdtest.platform.config;
+package com.gtmdtest.platform.components.config;
 
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;

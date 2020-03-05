@@ -1,4 +1,4 @@
-package com.gtmdtest.platform.config;
+package com.gtmdtest.platform.components.config;
 
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 

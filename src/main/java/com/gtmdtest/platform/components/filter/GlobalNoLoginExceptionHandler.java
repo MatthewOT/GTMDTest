@@ -1,4 +1,4 @@
-package com.gtmdtest.platform.filter;
+package com.gtmdtest.platform.components.filter;
 
 import com.gtmdtest.platform.model.vo.BaseResponseVO;
 import org.springframework.web.method.HandlerMethod;

@@ -1,4 +1,4 @@
-package com.gtmdtest.platform.config;
+package com.gtmdtest.platform.components.config;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 

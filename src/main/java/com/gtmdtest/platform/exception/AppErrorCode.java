@@ -16,11 +16,6 @@ public enum AppErrorCode {
     PARAMETER_VALIDATE_FAIL(11, "参数验证失败"),
     OPERATION_FAIL(9999, "操作失败,请稍后再试"),
     API_TOKEN_VALIDATE_FAIL(9998, "token不正确"),
-    MOCK_INTERFACE_DISABLED(9997, "mock接口被禁止调用"),
-    MOCK_INTERFACE_NOT_EXIST(9996, "未定义的mock接口"),
-    MOCK_ERROR(9995, "接口mock出错,请联系接口自动化测试平台"),
-    SYSTEM_IS_UPDATING(9994, "系统正在系统,请稍后刷新访问..."),
-    SYSTEM_IS_NEED_RESTART(9993, "系统刚刚升级完成,请联系管理员重启服务器..."),
 
 
     //自动化测试
@@ -28,16 +23,6 @@ public enum AppErrorCode {
     AUTO_TEST_NO_SCENE(100002, "无可测试的场景"),
     AUTO_TEST_BUSINESS_SYSTEM_NOT_EXIST(100003, "测试环境[{}]不存在或者被禁用,请检查"),
 
-
-    //用户相关
-    USER_RE_LOGIN(200001, "你已登陆此账号"),
-    USER_ACCOUNT_LOCK(200002, "该账号已被锁定,请联系管理员"),
-    USER_VERIFY_CODE_ERROR(200003, "验证码不正确"),
-    USER_ERROR_ACCOUNT(200004, "账号或者密码不正确"),
-    USER_PASSWORD_VALIDATE_ERROR(200005, "密码验证不正确"),
-
-    //站内信
-    MAIL_MISS_RECEIVER(300001, "需要选定一个收件用户才能发送"),
 
     //查询数据源
     DB_CONNECT_FAIL(310001, "尝试连接数据库失败,请检查配置"),
@@ -75,7 +60,7 @@ public enum AppErrorCode {
     private Integer code;
     private String msg;
 
-    private AppErrorCode (int code, String msg) {
+    AppErrorCode (int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
