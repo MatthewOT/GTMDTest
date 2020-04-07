@@ -10,12 +10,13 @@ import javax.annotation.Resource;
 import java.util.Iterator;
 import java.util.Map;
 
-@Component
+//@Component
 public class OkHttpUtil{
     private  final Logger logger = LoggerFactory.getLogger(OkHttpUtil.class);
 
-    @Resource
-    private OkHttpClient  okHttpClient;
+//    @Resource
+//private OkHttpClient okHttpClient;
+    private OkHttpClient okHttpClient = new OkHttpClient();
 
     /**
      * 用于get请求url拼接字符串
@@ -46,12 +47,12 @@ public class OkHttpUtil{
      * @param headers 存储headers的键值对
      * @return okhttp中的headers对象
      */
-    private Headers resolveHeaders(Map<String,String> headers){
+    private Headers resolveHeaders(Map<Object,Object> headers){
 
         Headers.Builder builder = new Headers.Builder();
 
-        for (Map.Entry<String,String> entry : headers.entrySet()){
-            builder.add(entry.getKey(),entry.getValue());
+        for (Map.Entry<Object,Object> entry : headers.entrySet()){
+            builder.add((String) entry.getKey(),(String) entry.getValue());
         }
         return builder.build();
     }
@@ -90,7 +91,7 @@ public class OkHttpUtil{
      * @param queries 请求的参数，在浏览器？后面的数据，没有可以传null
      * @return 响应
      */
-    public String get(String url, Map<String, String> queries, Map<String,String> headers) {
+    public String get(String url, Map<String, String> queries, Map<Object,Object> headers) {
         String requestUrl =  splitUrl(url,queries);
         Headers header;
 
@@ -115,7 +116,7 @@ public class OkHttpUtil{
      * @param params post form 提交的参数
      * @return 响应
      */
-    public  String post(String url, Map<String, String> params, Map<String,String> headers) {
+    public  String post(String url, Map<String, String> params, Map<Object,Object> headers) {
 
         FormBody.Builder builder = new FormBody.Builder();
 
@@ -148,7 +149,7 @@ public class OkHttpUtil{
      * @param queries 请求的参数，在浏览器？后面的数据，没有可以传null
      * @return 响应
      */
-    public  String getForHeader(String url, Map<String, String> queries, Map<String,String> headers) {
+    public  String getForHeader(String url, Map<String, String> queries, Map<Object,Object> headers) {
         String requestUrl = splitUrl(url,queries);
 
         Headers header;
@@ -173,7 +174,7 @@ public class OkHttpUtil{
      * 参数二：请求的JSON
      * 参数三：请求回调
      */
-    public  String postJsonParams(String url, String jsonParams, Map<String,String> headers) {
+    public  String postJsonParams(String url, String jsonParams, Map<Object,Object> headers) {
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonParams);
 
@@ -200,7 +201,7 @@ public class OkHttpUtil{
      * 参数二：请求的xmlString
      * 参数三：请求回调
      */
-    public  String postXmlParams(String url, String xml, Map<String,String> headers) {
+    public  String postXmlParams(String url, String xml, Map<Object,Object> headers) {
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/xml; charset=utf-8"), xml);
 
         Headers header;
@@ -220,7 +221,7 @@ public class OkHttpUtil{
         return requestExecutor(request);
     }
 
-    public String get(String url, Map<String, String> headers){
+    public String get(String url, Map<Object, Object> headers){
         if (headers.isEmpty()){
             return get(url,null,null);
         }

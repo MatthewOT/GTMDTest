@@ -2,15 +2,14 @@ package com.gtmdtest.platform;
 
 //import com.gtmdtest.platform.common.OkHttpUtil;
 import com.gtmdtest.platform.common.OkHttpUtil;
-import com.gtmdtest.platform.model.entity.TestCase;
 import com.gtmdtest.platform.model.mapper.TestCaseMapper;
 import com.gtmdtest.platform.service.testCaseService;
-import com.gtmdtest.platform.service.testcase.testcase1;
+import com.gtmdtest.platform.testcore.baseTestInterface;
+import com.gtmdtest.platform.testcore.testcase.testcase1;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @SpringBootTest
 class PlatformApplicationTests {
@@ -21,11 +20,13 @@ class PlatformApplicationTests {
     @Resource
     private TestCaseMapper caseMapper;
 
-    @Resource
-    private OkHttpUtil okHttpUtil;
+//    @Resource
+//    private OkHttpUtil okHttpUtil;
+    private OkHttpUtil okHttpUtil = new OkHttpUtil();
+    private baseTestInterface inter = new baseTestInterface();
 
-    @Resource
-    testcase1 testcase1;
+//    @Resource
+//    testcase1 testcase1;
 
     @Test
     void contextLoads() {
@@ -58,10 +59,16 @@ class PlatformApplicationTests {
 //        System.out.println(okHttpUtil.post("http://www.baidu.com",null,null));
     }
 
-    @Test
-    void test11(){
-        testcase1.testone();
-    }
+//    @Test
+//    void test11(){
+//        testcase1.testone();
+//    }
 
+    @Test
+    void test2() throws Exception {
+        inter.setUrl("http://www.kuaidi100.com/query?type=shunfeng&postid=123454545451");
+        inter.setMethod("GET");
+        System.out.println(inter.runInterface());
+    }
 
 }
