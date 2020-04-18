@@ -1,4 +1,4 @@
-package com.gtmdtest.platform.exception;
+package com.gtmdtest.platform.common.exception;
 
 import cn.hutool.core.util.StrUtil;
 /**

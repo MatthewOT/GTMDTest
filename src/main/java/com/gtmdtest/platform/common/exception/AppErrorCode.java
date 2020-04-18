@@ -1,4 +1,4 @@
-package com.gtmdtest.platform.exception;
+package com.gtmdtest.platform.common.exception;
 
 public enum AppErrorCode {
 
@@ -47,11 +47,6 @@ public enum AppErrorCode {
     //测试报告
     REPORT_INFO_NOT_EXIST(350001, "测试报告信息不存在"),
     REPORT_TEST_NO_DATA(350002, "该项测试还未完成或者没有任何测试结果"),
-
-
-    //高级测试相关
-    MOCK_PROTOCOL_NOT_SUPPORT(360001, "不支持该协议接口的Mock"),
-    MOCK_URL_EXIST(360002, "已存在Url路径为{}的Mock信息,请重新选择或者修改接口场景中的请求路径！"),
 
     //场景相关
     SCENE_INFO_NOT_EXIST(370001, "测试场景不存在")

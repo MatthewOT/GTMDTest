@@ -27,7 +27,7 @@ private OkHttpUtil okHttpUtil = new OkHttpUtil();
     此处的path用于json内部寻址,找寻我们所需要的值,具体的正则语法demo可见测试类中的jsontest
      */
     @Test
-    public void testone(){
+    public void testone() throws Exception {
        String response1 = okHttpUtil.get(url1);
         System.out.println(response1);
        tempValue.put("id",JsonUtil.getValue(response1,"$.setting.read_end_ad"));

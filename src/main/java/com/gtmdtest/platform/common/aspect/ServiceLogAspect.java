@@ -1,4 +1,4 @@
-//package com.gtmdtest.platform.aspect;
+//package com.gtmdtest.platform.common.aspect;
 //
 //import org.aspectj.lang.ProceedingJoinPoint;
 //import org.aspectj.lang.annotation.Around;

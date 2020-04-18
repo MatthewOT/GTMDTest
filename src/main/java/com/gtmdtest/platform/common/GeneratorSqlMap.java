@@ -20,7 +20,7 @@
 //        List<String> warnings = new ArrayList<>();
 //        boolean overwrite = true;
 //        //指定逆向工程配置文件
-//        File configFile = new File("D:\\projects\\GTMDTest\\src\\main\\resources\\generatorConfig.xml");
+//        File configFile = new File("/home/matthewot/IdeaProjects/GTMDTest/platform/src/main/resources/generatorConfig.xml");
 //        ConfigurationParser cp = new ConfigurationParser(warnings);
 //        Configuration config =cp.parseConfiguration(configFile);
 //        DefaultShellCallback callback = new DefaultShellCallback(overwrite);
