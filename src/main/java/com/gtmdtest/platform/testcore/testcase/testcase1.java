@@ -17,7 +17,7 @@ public class testcase1 {
 
 //    @Resource
 //    private OkHttpUtil okHttpUtil;
-private OkHttpUtil okHttpUtil = new OkHttpUtil();
+    private OkHttpUtil okHttpUtil = new OkHttpUtil();
 
     private String url1 = "https://wk.baidu.com/view/api/xpage?formId=wk_wap_ad_tmp";
 

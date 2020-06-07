@@ -15,20 +15,21 @@ import java.util.Map;
 public class baseTestInterface {
 
     private Logger logger = LoggerFactory.getLogger(baseTestInterface.class);
-//
+
 //    @Resource
 //    private OkHttpUtil okHttpUtil;
+    
     private OkHttpUtil okHttpUtil = new OkHttpUtil();
     private String itfName;//接口名
     private String url;//请求地址
     private String method;//请求方法
     private String response;//响应
-    private Map<Object,Object> headersOfItf;//接口请求头
-    private Map<String,String> cookiesOfItf;//接口cookie
-    private Map<String,String> assertOfItf;//接口断言
-    private Map<String,String> params;//请求参数
-    private Map<String,String> output;//输出至控制台或报告
-    private Map<String,String> tempValueOfItf;//接口层级的变量池
+    private Map<Object,Object> headersOfItf = new HashMap<>();//接口请求头
+    private Map<String,String> cookiesOfItf = new HashMap<>();//接口cookie
+    private Map<String,String> assertOfItf = new HashMap<>();//接口断言，可能需要再加一个map，作为assert结果集
+    private Map<String,String> params = new HashMap<>();//请求参数
+    private Map<String,String> output = new HashMap<>();//输出至控制台或报告
+    private Map<String,String> tempValueOfItf = new HashMap<>();//接口层级的变量池
 
     /**
      * 运行接口请求并进行响应参数提取
@@ -72,14 +73,14 @@ public class baseTestInterface {
 
     /**
      * 解析output和assert中的参数至变量池
-     * 目前的边界及异常处理不够细致，后续可能代码需要优化
+     * 目前的边界及异常处理不够细致，后续代码需要优化
      * @param responseBody 响应体
      * @throws Exception 响应体为空或map中的jsonPath为空
      */
     private void resolveTempValues(String responseBody) throws Exception {
         //解析output中
-        if (!output.isEmpty()){
-            for (Map.Entry entry : output.entrySet()){
+        if (!output.isEmpty()) {
+            for (Map.Entry entry : output.entrySet()) {
                 tempValueOfItf.put((String) entry.getKey(),
                         JsonUtil.getValue(responseBody, (String) entry.getValue()));
             }

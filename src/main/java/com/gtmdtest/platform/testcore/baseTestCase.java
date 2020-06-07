@@ -41,6 +41,7 @@ public class baseTestCase {
      * 将接口中的参数变量输出到用例内的变量池中
      * @param itf
      */
+
     private void parseOutPut(baseTestInterface itf) {
         String reponseJson = itf.getResponse();
 
@@ -61,7 +62,6 @@ public class baseTestCase {
                 tempValue.put(entry.getKey(),tempValueItf);
             }
         }
-
     }
 
     /**
@@ -93,6 +93,5 @@ public class baseTestCase {
                  }
              }
          }
-
     }
 }
