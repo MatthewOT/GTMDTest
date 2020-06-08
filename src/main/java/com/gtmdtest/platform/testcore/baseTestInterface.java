@@ -18,9 +18,6 @@ import java.util.Objects;
 @Accessors(chain = true)
 @Slf4j
 public class baseTestInterface {
-
-//    @Resource
-//    private OkHttpUtil okHttpUtil;
     
     private OkHttpUtil okHttpUtil = new OkHttpUtil();
     private String itfName;//接口名
