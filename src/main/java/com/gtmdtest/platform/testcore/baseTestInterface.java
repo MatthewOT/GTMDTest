@@ -1,6 +1,6 @@
 package com.gtmdtest.platform.testcore;
 
-import com.gtmdtest.platform.common.JsonUtil;
+import com.gtmdtest.platform.testcore.utils.JsonUtil;
 import com.gtmdtest.platform.common.OkHttpUtil;
 import com.gtmdtest.platform.model.enums.requestMethod;
 import lombok.*;
@@ -118,7 +118,7 @@ public class baseTestInterface {
         this.cookiesOfItf = cookiesOfItf;
         this.params = params;
         this.assertOfItf = assertOfItf;
-        if (!this.cookiesOfItf.isEmpty()){
+        if (Objects.nonNull(this.cookiesOfItf)){
             this.headersOfItf.put("Cookies",this.cookiesOfItf);
         }
     }

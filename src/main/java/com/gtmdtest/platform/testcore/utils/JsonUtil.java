@@ -1,4 +1,4 @@
-package com.gtmdtest.platform.common;
+package com.gtmdtest.platform.testcore.utils;
 
 import com.alibaba.fastjson.JSONPath;
 

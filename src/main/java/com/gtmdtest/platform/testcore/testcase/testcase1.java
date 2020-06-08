@@ -1,12 +1,10 @@
 package com.gtmdtest.platform.testcore.testcase;
 
 
-import com.gtmdtest.platform.common.JsonUtil;
+import com.gtmdtest.platform.testcore.utils.JsonUtil;
 import com.gtmdtest.platform.common.OkHttpUtil;
-import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 

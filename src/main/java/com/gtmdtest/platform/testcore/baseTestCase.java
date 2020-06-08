@@ -1,13 +1,11 @@
 package com.gtmdtest.platform.testcore;
 
-import com.gtmdtest.platform.common.JsonUtil;
+import com.gtmdtest.platform.testcore.utils.JsonUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
