@@ -1,21 +1,29 @@
 package com.gtmdtest.platform.testcore;
 
 import com.gtmdtest.platform.common.JsonUtil;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.Accessors;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@Accessors(chain = true)
+@Slf4j
 public class baseTestCase {
-
-    private Logger logger = LoggerFactory.getLogger(baseTestCase.class);
 
     String caseName = "";
     Map<String,baseTestInterface> itfs;
-    Map<String,String> tempValue;
-    Map<String,String> caseConfig;
-    Map<String,String> responses;
+    Map<String,String> tempValue = new HashMap<>();
+    Map<String,String> caseConfig = new HashMap<>();
+    Map<String,String> responses = new HashMap<>();
 
     void runCase(){
 
@@ -52,7 +60,7 @@ public class baseTestCase {
 
                 if (JsonUtil.getValue(reponseJson,entry.getValue()).isEmpty()){
 
-                    logger.info("请注意检查，中间变量《{}》的值为空",entry.getKey());
+                    log.info("请注意检查，中间变量《{}》的值为空",entry.getKey());
 
                 }else if (!JsonUtil.getValue(reponseJson,entry.getValue()).isEmpty()){
 

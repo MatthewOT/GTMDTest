@@ -2,7 +2,7 @@ package com.gtmdtest.platform.model.enums;
 
 
 public enum requestMethod {
-    get("GET"),post("POST"),delete("DELETE");
+    get("GET"),post("POST"),delete("DELETE"),put("PUT");
 
     String methodName;
 

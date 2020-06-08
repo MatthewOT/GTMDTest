@@ -24,6 +24,8 @@ class PlatformApplicationTests {
 //    private OkHttpUtil okHttpUtil;
     private OkHttpUtil okHttpUtil = new OkHttpUtil();
     private baseTestInterface inter = new baseTestInterface();
+    private baseTestInterface inter2 = new baseTestInterface("test","http://www.kuaidi100.com/query?type=shunfeng&postid=123454545451",
+            "get",null,null,null,null);
 
 //    @Resource
 //    testcase1 testcase1;
@@ -66,8 +68,9 @@ class PlatformApplicationTests {
 
     @Test
     void test2() throws Exception {
-        inter.setUrl("http://www.kuaidi100.com/query?type=shunfeng&postid=123454545451");
-        inter.setMethod("GET");
+        inter.setUrl("http://www.kuaidi100.com/query?type=shunfeng&postid=123454545451")
+                .setMethod("GET");
+
         System.out.println(inter.runInterface());
     }
 
