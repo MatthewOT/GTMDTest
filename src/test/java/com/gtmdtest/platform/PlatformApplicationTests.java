@@ -6,10 +6,13 @@ import com.gtmdtest.platform.model.mapper.TestCaseMapper;
 import com.gtmdtest.platform.service.testCaseService;
 import com.gtmdtest.platform.testcore.baseTestInterface;
 import com.gtmdtest.platform.testcore.testcase.testcase1;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 class PlatformApplicationTests {
