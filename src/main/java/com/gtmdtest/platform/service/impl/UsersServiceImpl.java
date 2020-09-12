@@ -3,7 +3,7 @@ package com.gtmdtest.platform.service.impl;
 import com.gtmdtest.platform.model.entity.Users;
 import com.gtmdtest.platform.model.entity.UsersExample;
 import com.gtmdtest.platform.model.mapper.UsersMapper;
-import com.gtmdtest.platform.service.usersService;
+import com.gtmdtest.platform.service.UsersService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -18,9 +18,9 @@ import java.util.List;
  * @create: 2019-11-28 13:06
  **/
 @Service
-public class usersServiceImpl implements usersService {
+public class UsersServiceImpl implements UsersService {
 
-    private static final Logger logger = LoggerFactory.getLogger(usersServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(UsersServiceImpl.class);
 
     @Resource
     private UsersMapper usersMapper;

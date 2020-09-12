@@ -3,7 +3,7 @@ package com.gtmdtest.platform.service.impl;
 import com.gtmdtest.platform.model.entity.StarCase;
 import com.gtmdtest.platform.model.entity.StarCaseExample;
 import com.gtmdtest.platform.model.mapper.StarCaseMapper;
-import com.gtmdtest.platform.service.starCaseService;
+import com.gtmdtest.platform.service.StarCaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -18,9 +18,9 @@ import java.util.List;
  * @create: 2019-11-28 13:07
  **/
 @Service
-public class starCaseServiceImpl implements starCaseService {
+public class StarCaseServiceImpl implements StarCaseService {
 
-    private static final Logger logger = LoggerFactory.getLogger(starCaseServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(StarCaseServiceImpl.class);
 
     @Resource
     private StarCaseMapper starCaseMapper;

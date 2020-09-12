@@ -1,4 +1,4 @@
-package com.gtmdtest.platform.testcore;
+package com.gtmdtest.platform.testcore.components;
 
 import com.gtmdtest.platform.testcore.utils.JsonUtil;
 import lombok.Getter;
@@ -8,26 +8,31 @@ import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
 @Slf4j
-public class baseTestCase {
+public class BaseTestCase {
 
     String caseName = "";
-    Map<String,baseTestInterface> itfs;
+    Set<TestInterface> itfs = new LinkedHashSet<>();
     Map<String,String> tempValue = new HashMap<>();
     Map<String,String> caseConfig = new HashMap<>();
     Map<String,String> responses = new HashMap<>();
 
-    void runCase(){
+    public void runCase(){
+        for (TestInterface itf : itfs){
+            runInterfaceInCase(itf);
+        }
 
     }
 
-    void runInterfaceInCase(baseTestInterface itf){
+    void runInterfaceInCase(TestInterface itf){
 
        parseTempValue(itf);
 
@@ -48,7 +53,7 @@ public class baseTestCase {
      * @param itf
      */
 
-    private void parseOutPut(baseTestInterface itf) {
+    private void parseOutPut(TestInterface itf) {
         String reponseJson = itf.getResponse();
 
         if (!itf.getOutput().isEmpty()){
@@ -74,7 +79,7 @@ public class baseTestCase {
      * 将用例中间变量池中的上下文接口参数解析到接口实例中
      * @param itf 需要进行解析的接口实例
      */
-    private void parseTempValue(baseTestInterface itf){
+    private void parseTempValue(TestInterface itf){
 
          if (!itf.getHeadersOfItf().isEmpty()){
              for (Map.Entry entry1:itf.getHeadersOfItf().entrySet()){

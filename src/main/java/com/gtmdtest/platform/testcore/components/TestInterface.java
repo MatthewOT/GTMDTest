@@ -1,8 +1,8 @@
-package com.gtmdtest.platform.testcore;
+package com.gtmdtest.platform.testcore.components;
 
 import com.gtmdtest.platform.testcore.utils.JsonUtil;
 import com.gtmdtest.platform.common.OkHttpUtil;
-import com.gtmdtest.platform.model.enums.requestMethod;
+import com.gtmdtest.platform.model.enums.RequestMethod;
 import lombok.*;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @Accessors(chain = true)
 @Slf4j
-public class baseTestInterface {
+public class TestInterface {
     
     private OkHttpUtil okHttpUtil = new OkHttpUtil();
     private String itfName;//接口名
@@ -39,7 +39,7 @@ public class baseTestInterface {
      */
     public String runInterface(){
         //get请求
-        if (Objects.equals(this.method, requestMethod.get.getName())){
+        if (Objects.equals(this.method, RequestMethod.get.getName())){
 
             response = okHttpUtil.get(url,params,headersOfItf);
 
@@ -50,7 +50,7 @@ public class baseTestInterface {
             return response;
 
             //post请求
-        }if (Objects.equals(this.method, requestMethod.post.getName())){
+        }if (Objects.equals(this.method, RequestMethod.post.getName())){
 
             response = okHttpUtil.post(url,params,headersOfItf);
 
@@ -108,9 +108,9 @@ public class baseTestInterface {
         }
     }
 
-    public baseTestInterface(String itfName, String url, String method,Map<Object,Object> headersOfItf,
-                             Map<String,String> cookiesOfItf, Map<String,String> params,
-                             Map<String,String> assertOfItf){
+    public TestInterface(String itfName, String url, String method, Map<Object,Object> headersOfItf,
+                         Map<String,String> cookiesOfItf, Map<String,String> params,
+                         Map<String,String> assertOfItf){
         this.itfName = itfName;
         this.url = url;
         this.method = method;

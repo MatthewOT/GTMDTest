@@ -4,7 +4,7 @@ import com.gtmdtest.platform.model.entity.TestCase;
 
 import java.util.List;
 
-public interface testCaseService {
+public interface TestCaseService {
 
     void addTestCase(TestCase newcase);
     void deleteTestCase(Integer id);

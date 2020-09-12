@@ -8,7 +8,7 @@ import java.util.Properties;
  * @author:
  * @create: 2019-11-25 14:08
  **/
-public class diffTools {
+public class DiffTools {
 
 //    public static int verificationBykey(Object value){
 //        //获取第一个字符

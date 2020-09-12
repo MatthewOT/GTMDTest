@@ -3,7 +3,7 @@
 //import com.alibaba.fastjson.JSONArray;
 //import com.alibaba.fastjson.JSONObject;
 //import com.alibaba.fastjson.serializer.SerializerFeature;
-//import com.gtmdtest.platform.common.diffTools;
+//import com.gtmdtest.platform.common.DiffTools;
 //import com.gtmdtest.platform.model.vo.BaseResponseVO;
 //import com.gtmdtest.platform.service.singleDiffService;
 //import org.springframework.stereotype.Controller;
@@ -121,8 +121,8 @@
 //    public BaseResponseVO resultByString(String responseBody1,String responseBody2){
 //        try {
 //            //这里需要引入一个diff工具
-//            int status1 = diffTools.verificationBykey(responseBody1);
-//            int status2 = diffTools.verificationBykey(responseBody2);
+//            int status1 = DiffTools.verificationBykey(responseBody1);
+//            int status2 = DiffTools.verificationBykey(responseBody2);
 //            if (status1 != 1 && status1 != 2 || status1 != status2 || status2 != 1 && status2 != 2) {
 //                return BaseResponseVO.error("请求数据中含有不合法数据,请检查后输入");
 //            }

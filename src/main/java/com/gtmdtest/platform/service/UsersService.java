@@ -4,7 +4,7 @@ import com.gtmdtest.platform.model.entity.Users;
 
 import java.util.List;
 
-public interface usersService {
+public interface UsersService {
 
     void addUser(Users user);
     void deleteUser(Integer id);

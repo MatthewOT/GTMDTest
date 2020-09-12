@@ -4,7 +4,7 @@ import com.gtmdtest.platform.model.entity.StarCase;
 
 import java.util.List;
 
-public interface starCaseService {
+public interface StarCaseService {
 
     void addStarCase(StarCase starCase);
     void deleteStarCase(Integer id);

@@ -3,10 +3,9 @@ package com.gtmdtest.platform.service.impl;
 import com.gtmdtest.platform.model.entity.TestCase;
 import com.gtmdtest.platform.model.entity.TestCaseExample;
 import com.gtmdtest.platform.model.mapper.TestCaseMapper;
-import com.gtmdtest.platform.service.testCaseService;
+import com.gtmdtest.platform.service.TestCaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -19,9 +18,9 @@ import java.util.List;
  * @create: 2019-11-28 13:07
  **/
 @Service
-public class testCaseServiceImpl implements testCaseService {
+public class TestCaseServiceImpl implements TestCaseService {
 
-    private static final Logger logger = LoggerFactory.getLogger(testCaseServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestCaseServiceImpl.class);
 
     @Resource
     private TestCaseMapper caseMapper;

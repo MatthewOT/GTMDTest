@@ -2,10 +2,9 @@ package com.gtmdtest.platform.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.gtmdtest.platform.common.OkHttpUtil;
 import com.gtmdtest.platform.model.entity.TestCase;
 import com.gtmdtest.platform.model.vo.BaseResponseVO;
-import com.gtmdtest.platform.service.testCaseService;
+import com.gtmdtest.platform.service.TestCaseService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,7 +20,7 @@ import java.util.Map;
  **/
 @RequestMapping("/testcase")
 @RestController
-public class testCaseController {
+public class TestCaseController {
 
     private static final Map<String,String> SYSTEM_NAME = new HashMap(){{
         put(1,"直销");
@@ -33,7 +32,7 @@ public class testCaseController {
     }};
 
     @Resource
-    private testCaseService testCaseService;
+    private TestCaseService TestCaseService;
 
     @PostMapping("/add")
     public BaseResponseVO addTestCase(@RequestParam(value = "systemType",required = true)Integer systemType,
@@ -46,13 +45,13 @@ public class testCaseController {
         testCase.setSystemName(SYSTEM_NAME.get(systemType));
         testCase.setDescription(descption);
         testCase.setRunUrl(runUrl);
-        testCaseService.addTestCase(testCase);
+        TestCaseService.addTestCase(testCase);
         return BaseResponseVO.success("成功");
     }
 
     @GetMapping("/deleteById")
     public BaseResponseVO deleteTestCase(@RequestParam(value = "caseId")Integer caseId){
-        testCaseService.deleteTestCase(caseId);
+        TestCaseService.deleteTestCase(caseId);
         return BaseResponseVO.success("操作成功");
     }
 
@@ -69,21 +68,21 @@ public class testCaseController {
         testCase.setSystemName(SYSTEM_NAME.get(systemType));
         testCase.setDescription(descption);
         testCase.setRunUrl(runUrl);
-        testCaseService.updateTestCase(testCase);
+        TestCaseService.updateTestCase(testCase);
         return BaseResponseVO.success("成功");
     }
 
     @GetMapping("/getById")
     public BaseResponseVO getTestCaseById(@RequestParam(value = "caseId")Integer caseId){
 
-        return BaseResponseVO.success(testCaseService.getTestCaseById(caseId));
+        return BaseResponseVO.success(TestCaseService.getTestCaseById(caseId));
     }
 
     @GetMapping("/getAll")
     public BaseResponseVO getAllTestCase(@RequestParam(value = "pn",defaultValue = "1") Integer pageNumber){
         //分页
         PageHelper.startPage(pageNumber,100);
-        List<TestCase> testCases = testCaseService.getAllTestCase();
+        List<TestCase> testCases = TestCaseService.getAllTestCase();
         PageInfo<TestCase> pageInfo = new PageInfo<>(testCases,100);
         return BaseResponseVO.success(pageInfo);
     }
@@ -93,7 +92,7 @@ public class testCaseController {
                                                      @RequestParam(value = "systemType",defaultValue = "1")Integer systemType){
 
         PageHelper.startPage(pageNumber,100);
-        List<TestCase> testCases = testCaseService.getTestCaseBySystemType(systemType);
+        List<TestCase> testCases = TestCaseService.getTestCaseBySystemType(systemType);
         PageInfo<TestCase> pageInfo = new PageInfo<>(testCases,100);
         return BaseResponseVO.success(pageInfo);
     }

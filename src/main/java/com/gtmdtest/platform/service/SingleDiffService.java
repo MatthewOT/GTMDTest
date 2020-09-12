@@ -2,7 +2,7 @@
 //
 //import com.alibaba.fastjson.JSONArray;
 //import com.alibaba.fastjson.JSONObject;
-//import com.gtmdtest.platform.common.diffTools;
+//import com.gtmdtest.platform.common.DiffTools;
 //
 //import java.util.Map;
 //
@@ -20,8 +20,8 @@
 //        if (o2==null){
 //            o2=01;
 //        }*/
-//        int status = diffTools.verificationBykey(o1);
-//        int status2 = diffTools.verificationBykey(o2);
+//        int status = DiffTools.verificationBykey(o1);
+//        int status2 = DiffTools.verificationBykey(o2);
 ////              两种URL虽然key相等，但是对应的value类型不一致，例如一个是数组，另一个是json
 //        if (status != status2) {
 //            resultJson.put("message", "在" + i + "层错误，" + original_key + "对应的值类型不一致。value1：" + o1 + ";value2:" + o2);

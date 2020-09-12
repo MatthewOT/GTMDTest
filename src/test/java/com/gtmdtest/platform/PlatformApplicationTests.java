@@ -3,22 +3,19 @@ package com.gtmdtest.platform;
 //import com.gtmdtest.platform.common.OkHttpUtil;
 import com.gtmdtest.platform.common.OkHttpUtil;
 import com.gtmdtest.platform.model.mapper.TestCaseMapper;
-import com.gtmdtest.platform.service.testCaseService;
-import com.gtmdtest.platform.testcore.baseTestInterface;
-import com.gtmdtest.platform.testcore.testcase.testcase1;
+import com.gtmdtest.platform.service.TestCaseService;
+import com.gtmdtest.platform.testcore.components.TestInterface;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootTest
 class PlatformApplicationTests {
 
     @Resource
-    private testCaseService testCaseService;
+    private TestCaseService TestCaseService;
 
     @Resource
     private TestCaseMapper caseMapper;
@@ -26,8 +23,8 @@ class PlatformApplicationTests {
 //    @Resource
 //    private OkHttpUtil okHttpUtil;
     private OkHttpUtil okHttpUtil = new OkHttpUtil();
-    private baseTestInterface inter = new baseTestInterface();
-    private baseTestInterface inter2 = new baseTestInterface("test","http://www.kuaidi100.com/query?type=shunfeng&postid=123454545451",
+    private TestInterface inter = new TestInterface();
+    private TestInterface inter2 = new TestInterface("test","http://www.kuaidi100.com/query?type=shunfeng&postid=123454545451",
             "get",null,null,null,null);
 
 //    @Resource
@@ -40,8 +37,8 @@ class PlatformApplicationTests {
 
     @Test
     void serviceTest(){
-//        List<TestCase> list = testCaseService.getAllTestCase();
-        System.out.println(testCaseService.getTestCaseBySystemType(1));
+//        List<BaseTestCase> list = TestCaseService.getAllTestCase();
+        System.out.println(TestCaseService.getTestCaseBySystemType(1));
 //        System.out.println(list.get(0).getCaseName());
     }
 
