@@ -1,6 +1,6 @@
 package com.gtmdtest.platform.testcore.componentTest;
 
-import com.gtmdtest.platform.testcore.components.Loader;
+import com.gtmdtest.platform.testcore.components.loaders.Loader;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 

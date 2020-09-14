@@ -1,4 +1,4 @@
-package com.gtmdtest.platform.testcore.components;
+package com.gtmdtest.platform.testcore.components.parsers;
 
 import com.gtmdtest.platform.testcore.components.caseComponents.*;
 

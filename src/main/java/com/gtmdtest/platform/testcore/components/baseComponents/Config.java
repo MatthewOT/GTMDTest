@@ -1,4 +1,4 @@
-package com.gtmdtest.platform.testcore.components.baseCpts;
+package com.gtmdtest.platform.testcore.components.baseComponents;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * 用例的全局配置项
