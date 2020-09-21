@@ -37,11 +37,11 @@ public class Parser {
 
     void parseParameters(){}
 
-    void parseFunctionParameters(){}
-
     Object getMappingVariable(){return null;}
 
     Object getMappingFunctions(){return null;}
+
+    void parseFunctionParams(){}
 
     /**
      * 将拼装好的case集合，结合ProjectMapping进行解析
@@ -49,13 +49,31 @@ public class Parser {
      * @param projectMapping suite的工程信息
      * @return 解析好的用例
      */
-    List<TestCase> paseSplitedCases(List<TestCase> cases,ProjectMapping projectMapping){
+    List<TestCase> parseSplitedCases(List<TestCase> cases,ProjectMapping projectMapping){
         List<TestCase> parsedCases = new ArrayList<>();
 
         //TODO:parse  cases  with   projectMapping
         return parsedCases;
     }
 
+
+    void extractVariables(){}
+
+    void parseVariablesMapping(){}
+
+    void extendWithApi(){}
+
+    void extendWithTestcase(){}
+
+    void prepareConfig(){}
+
+    void prepareTestcaseTests(){}
+
+    void parseTestcase(){}
+
+    void getParsedTestsuiteTestcases(){}
+
+    void parseTestsuite(){}
     /**
     parse tests and load to parsed testcases
 
